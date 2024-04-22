@@ -10,6 +10,10 @@
 	@apply border border-secondary rounded-2xl shadow-xl bg-primary px-2 max-w-[1140px] w-full mx-auto;
 }
 
+.link-underline-blue a {
+	@apply underline text-blue-500;
+}
+
 .dark {
 	--color-bg-primary: #2d3748;
 	--color-bg-primary: #2d3748;

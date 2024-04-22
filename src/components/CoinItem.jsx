@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 function CoinItem({ coin }) {
@@ -22,14 +23,16 @@ function CoinItem({ coin }) {
 			</td>
 			<td>{coin.market_cap_rank}</td>
 			<td>
-				<div className="flex items-center">
-					<img
-						className="w-6 mr-2 rounded-full"
-						src={coin.image}
-						alt={coin.id}
-					/>
-					<p className="hidden sm:table-cell">{coin.name}</p>
-				</div>
+				<Link to={`/${coin.id}`}>
+					<div className="flex items-center">
+						<img
+							className="w-6 mr-2 rounded-full"
+							src={coin.image}
+							alt={coin.id}
+						/>
+						<p className="hidden sm:table-cell">{coin.name}</p>
+					</div>
+				</Link>
 			</td>
 			<td>{coin.symbol.toUpperCase()}</td>
 			<td>${coin.current_price.toLocaleString()}</td>
