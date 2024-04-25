@@ -10,6 +10,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import CoinInfo from "./pages/CoinInfo";
 import Account from "./pages/Account";
+import IsLoggedIn from "./helpers/is-logged-in";
 import { ThemeProvider } from "./context/ThemeContext";
 import { loader as homeLoader } from "./pages/Home";
 import { loader as coinInfoLoader } from "./pages/CoinInfo";
@@ -20,8 +21,22 @@ const router = createBrowserRouter(
 		<>
 			<Route element={<Layout />}>
 				<Route path="/" element={<Home />} loader={homeLoader} />
-				<Route path="/signin" element={<SignIn />} />
-				<Route path="/signup" element={<SignUp />} />
+				<Route
+					path="/signin"
+					element={
+						<IsLoggedIn>
+							<SignIn />
+						</IsLoggedIn>
+					}
+				/>
+				<Route
+					path="/signup"
+					element={
+						<IsLoggedIn>
+							<SignUp />
+						</IsLoggedIn>
+					}
+				/>
 				<Route path="/account" element={<Account />} />
 				<Route path="/:id" element={<CoinInfo />} loader={coinInfoLoader} />
 			</Route>

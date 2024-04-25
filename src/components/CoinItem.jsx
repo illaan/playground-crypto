@@ -62,7 +62,7 @@ function CoinItem({ coin }) {
 					</svg>
 				)}
 			</td>
-			<td>{coin.market_cap_rank}</td>
+			<td>{coin?.market_cap_rank}</td>
 			<td>
 				<Link to={`/${coin.id}`}>
 					<div className="flex items-center">
@@ -75,8 +75,8 @@ function CoinItem({ coin }) {
 					</div>
 				</Link>
 			</td>
-			<td>{coin.symbol.toUpperCase()}</td>
-			<td>${coin.current_price.toLocaleString()}</td>
+			<td>{coin?.symbol.toUpperCase()}</td>
+			<td>${coin?.current_price.toLocaleString()}</td>
 			<td
 				className={`${
 					coin.price_change_percentage_24h > 0
@@ -87,13 +87,13 @@ function CoinItem({ coin }) {
 				{coin.price_change_percentage_24h.toFixed(2)}%
 			</td>
 			<td className="w-[180px] hidden md:table-cell">
-				${coin.total_volume.toLocaleString()}
+				${coin?.total_volume.toLocaleString()}
 			</td>
 			<td className="w-[180px] hidden sm:table-cell">
-				${coin.market_cap.toLocaleString()}
+				${coin?.market_cap.toLocaleString()}
 			</td>
 			<td>
-				<Sparklines data={coin.sparkline_in_7d.price}>
+				<Sparklines data={coin?.sparkline_in_7d.price}>
 					<SparklinesLine color="teal" />
 				</Sparklines>
 			</td>
